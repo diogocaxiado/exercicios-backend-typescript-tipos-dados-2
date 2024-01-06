@@ -1,0 +1,16 @@
+[
+  {
+    "nome": "Diogo",
+    "email": "diogo@gmail.com",
+    "cpf": "414928320-21",
+    "profissao": "Front End Developer",
+    "endereco": null
+  },
+  {
+    "nome": "Lucas",
+    "email": "lucas@gmail.com",
+    "cpf": "865948544-32",
+    "profissao": "Full Stack Developer",
+    "endereco": null
+  }
+]
