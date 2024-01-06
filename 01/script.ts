@@ -1,24 +1,18 @@
 import fs from 'fs';
+import { Usuario } from '../02/script';
 
-const leituraDeArquivo = (): void => {
-    fs.readFile('./bd.json', (err, data) => {
-        if (err) {
-            return console.log(err);
-        }
-        return console.log(data.toString());
-    })
+const lerArquivo = (): string => {
+    const arquivoBuffer = fs.readFileSync('./bd.json')
+    return arquivoBuffer.toString();
 }
 
-const escritaDeArquivo = (texto: string): string => {
-    let mensagem: string = "";
+export const escreverArquivo = (usuario: Usuario) => {
+    const arquivoString = lerArquivo();
+    const arquivoParse: Usuario[] = JSON.parse(arquivoString);
+    arquivoParse.push(usuario)
 
-    fs.writeFile('./bd.json', texto, (err) => {
-        if (err) {
-            return console.log(err);
-        }
-    })
-    return mensagem = "Alterado";
+    fs.writeFileSync('./bd.json', JSON.stringify(arquivoParse))
 }
 
-leituraDeArquivo();
-console.log(escritaDeArquivo('teste'));
+lerArquivo();
+//escreverArquivo({nome: 'Diogo', email: 'diogo@gmail.com', cpf: '414928320-21'});
